@@ -229,9 +229,6 @@
 	</div>
     </div>
     {% else %}
-    <div class="control-group">
-        {{ form_label(form, label) }}
-        <div class="controls">
             <select {{ block('widget_attributes') }}{% if multiple %} multiple="multiple"{% endif %}>
                 {% if empty_value is not none %}
                 <option value="">{{ empty_value|trans }}</option>
@@ -246,8 +243,6 @@
                 {% set options = choices %}
                 {{ block('widget_choice_options') }}
             </select>
-        </div>
-    </div>
     {% endif %}
 {% endspaceless %}
 {% endblock choice_widget %}
