@@ -6,7 +6,7 @@
 <meta charset="UTF-8" />
 {% block head_style %}
 {# Add your own bundles css here, to get them generated into final files #}
-{% stylesheets filter='less,?yui_css'
+{% stylesheets filter='less,cssembed,?yui_css'
 	    	'@MopaBootstrapBundle/Resources/public/less/mopabootstrapbundle.less'
 	    %}
 <link href="{{ asset_url }}" type="text/css" rel="stylesheet"
@@ -35,9 +35,9 @@
 <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
 </head>
 <body>
-    {% block topbar %}
-    {{ mopa_bootstrap_topbar() }}
-	{% endblock topbar %}
+    {% block navbar %}
+    {{ mopa_bootstrap_navbar('frontendNavbar') }}
+	{% endblock navbar %}
 
 	{% block container %}
 	<div class="container">
@@ -50,10 +50,10 @@
 		{% endblock flashes %}
 		<div class="row">
 			{% block content %}
-			<div class="span12">
+			<div class="span9">
 				<strong>Hier könnte Ihre Werbung stehen ... </strong>
 			</div>
-			<div class="span4">
+			<div class="span3">
 				{% block content_sidebar %}
                 <h2>Sidebar</h2>
 				{% endblock content_sidebar %}
@@ -88,6 +88,6 @@
 	    %}
 <script type="text/javascript" src="{{ asset_url }}"></script>
 {% endjavascripts %}
-	{% endblock foot_script %}
+{% endblock foot_script %}
 </body>
 </html>
